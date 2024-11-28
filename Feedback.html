@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=7, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stilo.css"/>
+</head>
+<style>
+    fieldset{
+        border: 1PX solid white ;
+        text-align: left;
+        color:#222627 ;
+        width: 50%;
+        margin-left: 25%;
+        margin-right: 25%; 
+        height: 100px;
+        font-size: larger;
+    }
+    h1{
+        padding-left: 7%;
+        font-size: 50px;
+    }
+</style>
+<body bgcolor="#222627">
+    <div id="cabeçalho"><h1>Feedback</h1></div>
+    <div id="cabeçalho2"></div>
+    <div id="espaço4"> 
+        <nav>
+        <a href="https://github.com/Bispocode/Site/blob/main/index.html">Voltar</a>
+        </nav>
+    </div>
+    <div id="menu">
+        <form >
+            <fieldset>
+              <div>
+                <legend>Informações Pessoais</legend>
+              </fieldset>
+              <fieldset>
+                  <div>
+                  <label for="name"><strong>Nome:</strong></label>
+                  <input type="text" name="name" id="name" required></input>
+                  </div>
+                  <div>
+                     <label for="sobrenome"><strong>Sobrenome:</strong></label>
+                  <input type="text" name="sobrenome" id="sobrenome" required>
+                    </div>
+                  </fieldset>
+            <fieldset>
+            <div>
+              <label for="email"><strong>Email</strong></label>
+            <input type="email" name="email" id="email" required></input>
+        </div>
+      </fieldset>
+            <fieldset>
+              <label><strong>Avaliação de Navegação</strong></label>
+            <br>
+                
+                <label>
+                  <input type="radio" name="avaliacao" value="1" required> 1 Estrela</input>
+                </label>
+            
+                <label>
+                  <input type="radio" name="avaliacao" value="2" required> 2 Estrelas</input>
+                </label>
+            
+                <label>
+                  <input type="radio" name="avaliacao" value="3" required> 3 Estrelas</input>
+                </label>
+            
+                <label>
+                  <input type="radio" name="avaliacao" value="4" required> 4 Estrelas</input>
+                </label>
+            
+                <label>
+                  <input type="radio" name="avaliacao" value="5" required> 5 Estrelas</input>
+                </label>
+            
+              </fieldset>
+        
+            <fieldset>
+              <label><strong>Feedback:</strong></label>
+                <label for="feedback">O que você gostaria de melhorar?</label><br>
+                <select id="feedback" name="feedback" multiple>
+                    <option value="Facilidade de Navegação">Facilidade de Navegação</option>
+                    <option value="Design do Site">Design do Site</option>
+                    <option value="Velocidade de Carregamento">Velocidade de Carregamento</option>
+                    <option value="Conteúdo">Conteúdo</option>
+                </select><br><br>
+        
+                <label for="comments"><strong>Comentários adicionais:</strong></label><br>
+                <textarea id="comments" name="comments" rows="4" cols="50"></textarea>
+            </fieldset>
+        
+            <button type="button" onclick="submitSurvey()">Enviar</button>
+        </form>
+        
+        <p id = "titulo">Dados Coletados:</p>
+        <pre id="output"></pre>
+        
+        <script>
+            function submitSurvey() {
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const rating = document.querySelector('input[name="rating"]:checked')?.value || 'Não avaliado';
+                const feedbackOptions = Array.from(document.getElementById('feedback').selectedOptions).map(option => option.value).join(', ') || 'Nenhuma opção selecionada';
+                const comments = document.getElementById('comments').value;
+        
+                const result = `
+        Nome: ${name}
+        Email: ${email}
+        Avaliação: ${rating} estrelas
+        Feedback: ${feedbackOptions}
+        Comentários: ${comments}
+                `;
+        
+                document.getElementById('output').textContent = result;
+            }
+        </script>
+    </div>
+</body>
+</html>
