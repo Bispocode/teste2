@@ -44,17 +44,17 @@
       width:35%;
       background-color: #f2b138;
   }
+  #espaço8{
+    float: right;
+    height: 500px;
+    width:35%;
+    background-color: #f2b138;
+  }
   #espaço7{
     float: right;
     height: 500px;
     width:35%;
     background-color: #f2b138;
-}
-#espaço8{
-  float: right;
-  height: 500px;
-  width:35%;
-  background-color: #f23838;
 }
   #espaço4{
       float: left;
@@ -64,7 +64,7 @@
   } 
   #espaço5{
       float: right;
-      height: 2750px;
+      height: 2800px;
       width:33%;
       background-color: #f2b138;
   }
